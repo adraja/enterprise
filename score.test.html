@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> NUFITSCAN </title>
+
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+
+<img src="Nutriligence.png"/>
+
+<div id="container" style="min-width: 1000px; height: 1000px; margin: 0 auto">
+</div><!-- /content -->
+
+<div data-role="footer">
+</div><!-- /footer -->
+
+
+</body>
+</html>
+
+<script>
+$(function () {
+        var colWidth = ($('#container').width() / 22 ) + 1;
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Nutritional Health Assessment - Summary'
+            },
+            subtitle: {
+		    text: 'Carotenoid Scanner Score (Average Score = 22000) '
+            },
+            xAxis: {
+                categories: [
+		    '',
+		    '',
+                    '10K-20K    (43.0%)',
+		    '',
+		    '',
+		    '',
+                    '20K-30K    (31.3%)',
+		    '',
+		    '',
+		    '',
+                    '30K-40K    (15.4%)',
+		    '',
+		    '',
+		    '',
+                    '40K-50K    (7.8%)',
+		    '',
+		    '',
+		    '',
+                    '50K+     (2.5%)',
+		    ''
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Employee Carotenoid Distribution %'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+		    column: {
+		    pointWidth: colWidth,
+		    colorByPoint: true,
+		    borderWidth: 1
+                }
+            },
+	    colors: [
+        	'#F5CECE',
+		'#E06563',
+		'#FC0400',
+		'#FFFFFF',
+		'#FADE7C',
+        	'#F0BB75',
+		'#CF8F06',
+		'#FFFFFF',
+		'#FCFCB6',
+		'#E4E45A',
+		'#FDFD02',
+		'#FFFFFF',
+		'#6ECC70',
+		'#04B404',
+		'#013D02',
+		'#FFFFFF',
+		'#79A4ED',
+		'#3C82FA',
+		'#08088A'
+    	    ],
+            series: [{
+	        name: 'Scanner Score',
+                data: [
+			{x:1,y:17.2},
+			{x:2,y:13.7},
+			{x:3,y:12.1},
+			{x:4,y:0},
+			{x:5,y:12.0},
+			{x:6,y:11.1},
+			{x:7,y:8.2},
+			{x:8,y:0},
+			{x:9,y:7.7},
+			{x:10,y:3.5},
+			{x:11,y:4.2},
+			{x:12,y:0},
+			{x:13,y:3.5},
+			{x:14,y:2.2},
+			{x:15,y:2.1},
+			{x:16,y:0},
+			{x:17,y:1.5},
+			{x:18,y:0.7},
+			{x:19,y:0.3}
+		]
+            }]
+    });
+    });
+
+</script>
